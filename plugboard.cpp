@@ -38,7 +38,7 @@ bool controll(string& x, string& y){
 int main(){
     ChooseLanguage();
 
-    string a, b;
+    string x, y;
     cout << "=== PLUGBOARD WIRING ===\n";
     cout << "Enter letter pairs to wire together.\n";
     cout << "Type 'done' when finished.\n\n";
@@ -56,11 +56,11 @@ int main(){
           continue;
         }
 
-        x[0] = toupper(a[0])
-        y[0] = toupper(b[0])
+        x[0] = toupper(x[0])
+        y[0] = toupper(y[0])
         if (controll(x,y)) {
-            wiring[a] = b;
-            wiring[b] = a;
+            wiring[x] = y;
+            wiring[y] = x;
             cout << "Paired " << x << " <-> " << y << "\n\n";
         }
     }
