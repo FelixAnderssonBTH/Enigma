@@ -2,6 +2,8 @@
 #include <map>
 #include <iostream>
 #include <vector>
+#include <algorithm>
+
 
 #include "language.h"
 
@@ -20,11 +22,11 @@ bool controll(string& x, string& y){
       return false;
     
     }if (wiring.count(x)){
-      cout<< "cant wire" << x << "twice\n";
+      cout<< "can't wire " << x << " twice\n";
       return false;
     
     }if (wiring.count(y)){
-      cout<< "cant wire" << y << "twice\n";
+      cout<< "can't wire " << y << " twice\n";
       return false;
     }
     if (!inAlphabet(x) || !inAlphabet(y)){
@@ -37,13 +39,16 @@ bool controll(string& x, string& y){
   
 int main(){
     ChooseLanguage();
+    int wires = 0;
+    if (alphabet.size() == 29) wires = 12;
+    if (alphabet.size() == 26) wires = 10;
 
     string x, y;
     cout << "=== PLUGBOARD WIRING ===\n";
     cout << "Enter letter pairs to wire together.\n";
     cout << "Type 'done' when finished.\n\n";
-
-    while (true) {
+    
+    while (wiring.size() < wires) {
         cout << "write pairs (eg. A B): ";
         cin >> x >> y;
         
@@ -56,13 +61,18 @@ int main(){
           continue;
         }
 
-        x[0] = toupper(x[0])
-        y[0] = toupper(y[0])
-        if (controll(x,y)) {
+        x[0] = toupper(x[0]);
+        y[0] = toupper(y[0]);
+        if (!wiring.empty()) {
+          for (const auto& [key, val] : wiring)
+              if (key < val)
+                  cout << key << " <-> " << val << "\n";
+          
+          }if (controll(x,y)) {
             wiring[x] = y;
             wiring[y] = x;
             cout << "Paired " << x << " <-> " << y << "\n\n";
-        }
+          }
     }
 
     return 0;

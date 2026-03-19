@@ -19,19 +19,18 @@ void ChooseLanguage() {
     int choice = 0;
 
     while (choice != 1 && choice != 2) {
-        cout << "Choose alphabet\n";
-        cout << "  1. English\n";
-        cout << "  2. Swedish\n";
-        cout << "Enter 1 or 2: ";
+        cout << "Choose alphabet"<< endl;
+        cout << "  1. English"<< endl;
+        cout << "  2. Swedish"<< endl;
+        cout << "Enter 1 or 2: "<< endl;
         cin >> choice;
-    }
-
-    if (choice == 1) {
-        alphabet.resize(26);
-        cout << "English alphabet selected!\n";
-        
-    } else {
-        cout << "Swedish alphabet selected!\n";
+            
+        if (choice == 1) {
+            alphabet.resize(26);
+            cout << "English alphabet selected!"<< endl;
+          
+        } else if (choice == 2) 
+            cout << "Swedish alphabet selected!"<< endl;   
     }
 }
 
