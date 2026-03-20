@@ -31,7 +31,10 @@ void ChooseLanguage() {
           
         } else if (choice == 2) 
             cout << "Swedish alphabet selected!"<< endl;   
+    else{
+      continue;
     }
+}
 }
 
 #endif
